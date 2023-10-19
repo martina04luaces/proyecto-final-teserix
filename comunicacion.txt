@@ -1,0 +1,4 @@
+tomas: estilos, confirmacion por gmail
+martina: registro y conexion, evitar usuarios duplicados
+lucas: index....
+emy: js, recuperar contraseña
