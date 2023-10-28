@@ -1,56 +1,85 @@
 <?php
 include("conexion.php");
 ?>
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <link rel="preconnect" href="https://fonts.googleapis.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-        <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Roboto+Slab&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/stylesession.css"> 
-    <title>Registrarse</title> 
-</head> 
-<body> 
-    <div class="formulario"> 
-        <form action="registro.php" method="POST"> 
-            <h1>Registrarse</h1> 
-            <input class="input" type="text" id="username" name="username" placeholder="Usuario" required><br> 
-            <input class="input" type="number" name="document" id="document" placeholder="Documento" required><br>
-            <input class="input" type="password" id="password" name="password" placeholder="Contraseña" required><br>
-            <input class="input" type="password" id="confirm_password" name="confirm_password" placeholder="Confirmar contraseña" required><br>  
-            <input type="submit" value="Enviar" name="Enviar"><br> 
-            <a href="login.php">Ya tienes un usuario?</a> 
-        </form> 
-    </div> 
-    <div class="errores"> 
-        <?php 
-        if(isset($_POST['Enviar'])){ 
-            $username = $_POST['username']; 
-            $password = $_POST['password']; 
-            $document = $_POST['document']; 
-            $confirm_password = $_POST['confirm_password']; 
 
-            echo '</div>'; 
-            if ($password !== $confirm_password) { 
-                echo "Las contraseñas no coinciden."; 
-            } else { 
-                $query = "SELECT * FROM usuarios WHERE username = '$username'"; 
-                $result = mysqli_query($conexion, $query); 
-  
-                if (mysqli_num_rows($result) > 0) { 
-                    echo "El nombre de usuario ya está en uso."; 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/stylesession.css">
+    <title>Registrarse</title>  
+</head>
+<body>
+    <div class="formulario">
+        <form action="registro.php" method="POST">
+            <h1>Registrarse</h1>
+            <input class="input" type="text" name="username" placeholder="Nombre de Usuario" required><br>
+            <input class="input" type="number" name="document" placeholder="Documento" required><br>
+            <input class="input" type="password" name="password" placeholder="Contraseña" required><br>
+            <input class="input" type="password" name="confirm_password" placeholder="Confirmar contraseña" required><br>
+            <input class="input" type="text" name="email" placeholder="Correo Electronico" required><br>  
+            <input type="submit" value="Registrar" name="registrar"><br>
+            <a href="login.php">Ya tienes un usuario?</a>
+        </form>
+    </div>
+    <div class="errores">
+        <?php
+        if (isset($_POST['registrar'])) {
+            $email = $_POST['email'];
+            $emailQuery = "SELECT * FROM usuarios WHERE email = '$email'";
+            $emailInUse = mysqli_num_rows(mysqli_query($conexion, $emailQuery));
+            
+            if ($emailInUse >= 1) {
+                echo "Email ya en uso, utilice otro. <a href='../regis+tro.php'>Reiniciar</a>";
+            } else {
+                $usuario = $_POST['username'];
+                $contrasenia = $_POST['password'];
+                $token = time();
+                
+                $password = password_hash($contrasenia, PASSWORD_DEFAULT);
+                
+                $sql = "INSERT INTO usuarios (username, password, email, token) VALUES ('$usuario', '$password', '$email', '$token')";
+                $insertar = mysqli_query($conexion, $sql);
+                
+                if ($insertar) {
+            
                 } else {
-                     $hashed_password = password_hash($password, PASSWORD_BCRYPT); 
-                     $insert_query = "INSERT INTO usuarios (username, password, document) VALUES ('$username', '$hashed_password', '$document')";
-                     mysqli_query($conexion, $insert_query); 
+                    echo 'Error al registrar usuario.';
+                }
+            }
+        }
 
-                    echo "Registro exitoso. Ahora puedes iniciar sesión."; 
-                } 
-            }  
-        }  
-      
-      ?> 
+        if (isset($_GET['send'])) {
+            if ($_GET['send'] == 1) {
+                echo 'Correo enviado, por favor valide';
+            } else {
+                echo 'Error al enviar el correo de validación';
+            }
+        }
+
+        if (isset($_GET['token'])) {
+            session_start();
+            $token = $_GET['token'];
+            $sql = "SELECT * FROM usuarios WHERE token = '$token'";
+            $consulta = mysqli_query($conexion, $sql);
+            if (mysqli_num_rows($consulta) > 0) {
+                $registro = mysqli_fetch_assoc($consulta);
+                $_SESSION['username'] = $registro['username'];
+                $sql = "UPDATE usuarios SET token = 1 WHERE token = '$token'";
+                $actualizar = mysqli_query($conexion, $sql);
+                echo 'Usuario validado, ya puede iniciar sesión';
+                header("location: login.php");
+            } else {
+                echo 'El token no existe';
+                session_destroy();
+                header("location: ../registro.php");
+            }
+        }
+        ?>
+    </div>
 </body>
 </html>

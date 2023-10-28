@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color: #1F1F1F;
+}
+
+.ca{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: #EFEFEF;
+}
+
+.ca img{
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+}
+
+.menu{
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    background-color: #363636;
+    height: 40px;
+    padding-left: 10px;
+    align-items: center;
+}
+
+.menu a{
+    margin-right: 10px;
+    text-decoration: none;
+    color: #EFEFEF;
+    border-bottom: 0px solid #EFEFEF;
+    padding: 8px;
+}
+
+.menu a:hover{
+    font-style: none;
+    color: #EFEFEF;
+    border-bottom: 2px solid #EFEFEF;
+}
+
+footer{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background-color: #252525;
+    border-top: 2px solid #252525;
+    border-bottom: 2px solid #252525;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+    display: flow-root;
+}
+
+footer h4{
+    margin: 20px;
+}
+
+h3{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    font-size: 2em;
+    text-align: center;
+}
+
+.cuerpo{
+    margin: auto;
+    width: 50%;
+    height: 90%;
+    margin-top: 16px;
+}
+
+.data{
+    width: 100%;
+    background: black;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid rgb(255, 102, 0);
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+}
+
+textarea{
+    width: 90%;
+}
+
+.boton{
+    width: 25%;
+    border-radius: 4px;
+    background: black;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+.boton:hover{
+    cursor: pointer;
+}
+
+input{
+    width: 35%;
+}
+
+#reference{
+    opacity: 0;
+}
