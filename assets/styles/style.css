@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: #1F1F1F;
+}
+.ca{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: #EFEFEF;
+}
+.ca img{
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background-color: #363636;
+    height: 40px;
+    padding-left: 10px;
+    align-items: center;
+}
+.menu a{
+    margin-right: 10px;
+    text-decoration: none;
+    color: #EFEFEF;
+    border-bottom: 0px solid #EFEFEF;
+    padding: 8px;
+}
+.menu .usuario{
+    color: #EFEFEF;
+}
+.menu a:hover{
+    font-style: none;
+    color: #EFEFEF;
+    border-bottom: 2px solid #EFEFEF;
+}
+.menu .session-info{
+    display: flex;
+    justify-content: flex-end;
+}
+.menu .links-to{
+    display: flex;
+}
+.cuerpo h2{
+    width: 60%;
+    border-radius: 10px;
+    color: #EFEFEF;
+    padding: 10px;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.cuerpo{
+    margin-top: 10px;
+}
+.cuerpo .adan{
+    background-color: white;
+    border: 3px solid #252525;
+    box-shadow: 7px 7px 7px 7px black;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    width: 70%;
+    color: #252525;
+    padding: 15px;
+}
+.adan {
+    margin-left: 15%;
+}
+.adan img{
+    height: auto;
+    max-height: 650px;
+    margin: 10px;
+}
+.fot{
+    display: flex;
+    justify-content: space-around;
+    margin-left :20px ;
+    flex-wrap: wrap;
+}
+.subtitle{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.subtitle h3{
+    border-bottom: solid 1px black;
+}
+.prod{
+    text-align: center;
+    background-color: white;
+    border: 3px solid #252525;
+    box-shadow: 4px 4px 4px 0px black;
+    padding: 5px;
+    max-width: 400px;
+    width: 100%;
+    max-height: 500px;
+    height: 100%;
+    margin: 10px;
+    color: #252525;
+}
+.ima{
+    max-width: 250px;
+    width: 100%;
+    max-height: 250px;
+    height: 100%;
+}
+.ima2{
+    height: 25px;
+    width: 25px;
+}
+.redes{
+    margin-bottom: 40px;   
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.redes h4{
+    text-align: center;
+}
+.redes h3{
+    margin-top: 60px;
+    color: black;
+    border-bottom: black solid 1px;
+}
+.redess{
+    margin: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.redes img{
+    height: 30px;
+    width: 30px;
+    border-radius: 8px;
+}
+.redes .social{
+    margin-right: 10px;
+}
+footer{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background-color: #252525;
+    border-top: 2px solid #252525;
+    border-bottom: 2px solid #252525;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+    display: flow-root;
+}
+footer h4{
+    margin: 20px;
+}
+.cuerpo h2{
+    display: flex;
+    justify-content: center;
+    font-size: 4em;
+    color: black;
+}
+.info{
+    display: flex;
+}
+.txt{
+    margin: 10px;
+    flex-wrap: wrap;
+}
+.txt a{
+    text-decoration: none;
+    color: black;
+}
+.txt a:hover{
+    color: black;
+    margin: -10px;
+    padding: 10px;
+    background-color: #8b8a8a;
+    animation: ease 2s;
+    border-radius: 10px;
+}
+.txt h2{
+    word-spacing: 15px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+.arreglos{
+    background-color: white;
+    height: 70%;
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.arreglos img{
+    border-radius: 8px;
+    margin-right: 20px;
+}
+.arreglos h3{
+    border-bottom: 1px black solid;
+}
+
+@media (max-width:700px) {
+    .cuerpo .adan{
+        height: 90%;
+    }
+    .info{
+        text-align: center;
+    }
+    .arreglos img{
+        display: none;
+    }
+    .title h2{
+        font-size: 3em;
+    }
+    footer{
+        flex-wrap: wrap;
+    }
+}
