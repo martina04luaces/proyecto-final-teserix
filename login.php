@@ -13,12 +13,25 @@ include("conexion.php");
     <title>Iniciar Sesion</title>
 </head>
 <body>
+<<<<<<< HEAD
     <div class="formulario">
         <form action="login.php" method="POST" >
             <h1>Iniciar Sesion</h1>
             <input class="input" type="text" id="username" name="username" placeholder="Nombre de Usuario" required> <br>
             <input class="input" type="password" id="password" name="password" placeholder="Contraseña" required> <br>
             <input type="submit" value="Enviar" name="Enviar" class="enviar"> <br>
+=======
+    <header class="ca"> 
+        <a href='/'><img src="images/images.png"></a>
+        <h1>TESERIX</h1>
+    </header>
+    <div class="formulario">
+        <form action="login.php" method="POST" >
+            <h1>Iniciar Sesion</h1>
+            <input class="input" type="text" id="username" name="username" placeholder="Usuario" required> <br>
+            <input class="input" type="password" id="password" name="password" placeholder="Contraseña" required> <br>
+            <input type="submit" value="Enviar" name="Enviar"> <br>
+>>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
             <a href="registro.php">No tienes un usuario?</a>
         </form>
     </div>
