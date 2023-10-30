@@ -1,17 +1,10 @@
 <?php
-<<<<<<< HEAD
 include('conexion.php');
 ?>
-=======
-    include("redimensionarImg.php");
-    include("conexion.php");
-    ?>
->>>>>>> emy
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<<<<<<< HEAD
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/styles/style.css">
@@ -31,11 +24,7 @@ include('conexion.php');
             <ul class="menu">
                 <div class="links-to">
                     <li><a href='index.php'>Ventas</a></li>
-<<<<<<< HEAD
                     <li><a href='turno.php'>Turno</a></li>
-=======
-                    <li><a href='turno.php'>Turnos</a></li>
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
                 </div>
                 <div class="session-info">
                     <li class="usuario"><?php
@@ -78,11 +67,7 @@ include('conexion.php');
                     <div>
                         <h3>Disco Duro Seagate</h3>
                         <p>Disco Rido de 1tb, con velocidades de escritura de hasta 500mb/s.</p>
-<<<<<<< HEAD
                         <b>$19.300</b> <br>
-=======
-                        <b>$9.300</b> <br>
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
                         <a href="!#"><img src="assets/images/carrito.png" class="ima2"></a>                
                     </div>
                 </div>
@@ -92,11 +77,7 @@ include('conexion.php');
                     <div>
                         <h3>AMD Ryzen 3 3200g</h3>
                         <p>Microprocesador AMD Ryzen con graficos integrados Radeon Vega 8.</p>
-<<<<<<< HEAD
                         <b>$109.000</b> <br>
-=======
-                        <b>$27.000</b> <br>
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
                         <a href="!#"><img src="assets/images/carrito.png" class="ima2"></a>
                     </div> 
                 </div>
@@ -106,11 +87,7 @@ include('conexion.php');
                     <div>
                         <h3>Memoria RAM 8gb</h3>
                         <p>Memoria RAM marca Hyperx con una tasa de 2666mhz con tecnología DDR4.</p>
-<<<<<<< HEAD
                         <b>$26.000</b> <br>
-=======
-                        <b>$6.000</b> <br>
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
                         <a href="!#"><img src="assets/images/carrito.png" class="ima2"></a>
                     </div>
                 </div>
@@ -123,10 +100,7 @@ include('conexion.php');
                 <div class="txt">
                     <h2>PROFESIONALES EN SOPORTE DE COMPUTADORAS</h2>
                     <p>Un servicio de excelencia. Brindamos reparación de PC de forma inmediata para las eventualidades que puedan llegar a surgir en tu computadora. En caso de que así lo requieras contamos con la posibilidad de brindarte servicio de técnico a domicilio en Capital Federal y GBA (Consulte zonas de alcance), además de atención en nuestro taller y soporte remoto.</p>
-<<<<<<< HEAD
                     <a href="turno.php">Sacar turno</a>
-=======
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
                 </div>
             </div>
         </div>
@@ -147,15 +121,6 @@ include('conexion.php');
                 <a href="!#">Gasto de envío</a>
                 <a href="!#">Opiniones de clientes</a>
             </div>
-<<<<<<< HEAD
-=======
-            <div class="quien">
-                <h4>Quienes somos</h4>
-                <a href="!#">Quienes somos</a>
-                <a href="!#">Nuestras tiendas</a>
-                <a href="!#">Garantías</a>
-            </div>
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
             <div class="cont">
                 <h4>Contactar</h4>
                 <a href="!#">Aviso legal</a>
@@ -167,43 +132,4 @@ include('conexion.php');
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
     </body>
-=======
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de usuarios</title>
-</head>
-<body>
-    <form action="#" method="post">
-        <label for="nombre">Nombre</label>
-        <input type="text" name="nombre">
-        <label for="email">email</label>
-        <input type="email" name="email">
-        <label for="pass">Contraseña</label>
-        <input type="password" name="pass">
-        <label for="imagen">Imagen</label>
-        <input type="file" name="imagen" accept="image/*">
-        <a href="recuperar.php" style="">Olvidé mi contraseña</a>
-        <input type="submit" value="registrar" name="registrar">
-        
-    </form>
-    <?php
-        //registro 
-        if(isset($_POST['registrar'])){
-            $nombre= $_POST['nombre'];
-            $gmail=$_POST['email'];
-            $pass= $_POST['pass'];
-            $pass = password_hash($pass, PASSWORD_DEFAULT);
-            if(is_uploaded_file($_FILES['imagen']['tmp_name'])){
-                move_uploaded_file($_FILES['imagen']['tmp_name'], $_FILES['imagen']['name']);
-                $imagen=$_FILES['imagen']['name'];
-                unlink($_FILES['imagen']['name']);
-            }
-            else{
-                $imagen="image/default-image.jpg";
-            }
-            $sql= "INSERT INTO usuario (Nbr_u, Img_u,email,Pass_u) VALUES ('$nombre', '$imagen','$gmail', '$pass')";
-            $insert= mysqli_query($conexion, $sql)?print('Registro ingresado correctamente'): print('Error al insertar');
-        }
-    ?>
-</body>
->>>>>>> emy
 </html>
