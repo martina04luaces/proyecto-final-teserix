@@ -5,19 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/styles/styleturno.css">
-<<<<<<< HEAD
     <link rel="shortcut icon" href="assets/images/images.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
     <title>Turnos</title>
-=======
-    <link rel="shortcut icon" href="images/images.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-    <title>Document</title>
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 </head>
 <body>
 
@@ -70,13 +62,6 @@
                             <input type="text" name="nombre">
                         </div>
                         <div class="data">
-<<<<<<< HEAD
-=======
-                            <p>Correo Electrónico</p>
-                            <input type="email" name="mail">
-                        </div>
-                        <div class="data">
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
                             <p>Ingrese su consulta</p>
                             <textarea name="texta" cols="103" rows="4"></textarea>
                         </div>
@@ -99,14 +84,6 @@
                 <a href="!#">Nuestras tiendas</a>
                 <a href="!#">Garantías</a>
             </div>
-<<<<<<< HEAD
-=======
-            <div class="cont">
-                <h4>Contactar</h4>
-                <a href="!#">Aviso legal</a>
-                <a href="!#">Política de cookies</a>
-            </div>
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
         </footer>
 <script src="turno.js"></script>
 </body>

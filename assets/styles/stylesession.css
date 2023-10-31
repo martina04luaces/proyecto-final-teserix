@@ -3,43 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
-<<<<<<< HEAD
 body{
     font-family: 'Inclusive Sans', sans-serif;
     color: white;
     background-color: #1f1f1f;
 }
-=======
-
-body{
-    font-family: 'Inclusive Sans', sans-serif;
-    color: white;
-    background-color: #8B0000;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 form{
     background-color: #1f1f1f;
     width: 50%;
     border-radius: 15px;
     text-align: center;
 }
-<<<<<<< HEAD
 a{
     color: white;
-=======
-
-a{
-    color: white;
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 }
 .formulario{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-<<<<<<< HEAD
 .header-logo{
     display: flex;
     align-items: center;
@@ -47,38 +29,16 @@ a{
     color: black;
 }
 .header-logo img{
-=======
-
-.ca{
-    display: flex;
-    align-items: center;
-    background-color: black;
-    color: #EFEFEF;
-}
-
-.ca img{
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
     width: 70px;
     height: 70px;
     margin: 15px;
 }
-<<<<<<< HEAD
 .input{
     border-radius: 20px;
     width: 90%;
     height: 40px;
     font-size: 1.3em;
 }
-=======
-
-.input{
-    border-radius: 20px;
-    width: 350px;
-    height: 40px;
-    font-size: 1.3em;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .menu{
     display: flex;
     list-style: none;
@@ -87,10 +47,6 @@ a{
     padding-left: 10px;
     align-items: center;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .menu a{
     margin-right: 10px;
     text-decoration: none;
@@ -98,16 +54,11 @@ a{
     border-bottom: 0px solid #EFEFEF;
     padding: 8px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .menu a:hover{
     font-style: none;
     color: #EFEFEF;
     border-bottom: 2px solid #EFEFEF;
 }
-<<<<<<< HEAD
 .menu-elements{
     display: flex;
 }
@@ -123,14 +74,3 @@ ul{
         width: 100px;
     }
 }
-=======
-
-.menu-elements{
-    display: flex;
-}
-
-ul{
-    list-style: none;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f

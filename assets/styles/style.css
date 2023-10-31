@@ -4,36 +4,20 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
-<<<<<<< HEAD
 body{
     background-color: #1F1F1F;
 }
-=======
-
-body{
-    background-color: #1F1F1F;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .ca{
     display: flex;
     align-items: center;
     background-color: black;
     color: #EFEFEF;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .ca img{
     width: 70px;
     height: 70px;
     margin: 15px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .menu{
     display: flex;
     justify-content: space-between;
@@ -43,10 +27,6 @@ body{
     padding-left: 10px;
     align-items: center;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .menu a{
     margin-right: 10px;
     text-decoration: none;
@@ -54,51 +34,27 @@ body{
     border-bottom: 0px solid #EFEFEF;
     padding: 8px;
 }
-<<<<<<< HEAD
 .menu .usuario{
     color: #EFEFEF;
 }
-=======
-
-.menu .usuario{
-    color: #EFEFEF;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .menu a:hover{
     font-style: none;
     color: #EFEFEF;
     border-bottom: 2px solid #EFEFEF;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .menu .session-info{
     display: flex;
     justify-content: flex-end;
 }
-<<<<<<< HEAD
 .menu .links-to{
     display: flex;
 }
-=======
-
-.menu .links-to{
-    display: flex;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .cuerpo h2{
     width: 60%;
     border-radius: 10px;
     color: #EFEFEF;
     padding: 10px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .title{
     display: flex;
     justify-content: center;
@@ -108,10 +64,6 @@ body{
 .cuerpo{
     margin-top: 10px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .cuerpo .adan{
     background-color: white;
     border: 3px solid #252525;
@@ -122,51 +74,27 @@ body{
     color: #252525;
     padding: 15px;
 }
-<<<<<<< HEAD
 .adan {
     margin-left: 15%;
 }
-=======
-
-.adan {
-    margin-left: 15%;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .adan img{
     height: auto;
     max-height: 650px;
     margin: 10px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .fot{
     display: flex;
     justify-content: space-around;
     margin-left :20px ;
     flex-wrap: wrap;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .subtitle{
     padding-left: 3%;
     padding-right: 3%;
 }
-<<<<<<< HEAD
 .subtitle h3{
     border-bottom: solid 1px black;
 }
-=======
-
-.subtitle h3{
-    border-bottom: solid 1px black;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .prod{
     text-align: center;
     background-color: white;
@@ -180,79 +108,43 @@ body{
     margin: 10px;
     color: #252525;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .ima{
     max-width: 250px;
     width: 100%;
     max-height: 250px;
     height: 100%;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .ima2{
     height: 25px;
     width: 25px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .redes{
     margin-bottom: 40px;   
     padding-left: 3%;
     padding-right: 3%;
 }
-<<<<<<< HEAD
 .redes h4{
     text-align: center;
 }
-=======
-
-.redes h4{
-    text-align: center;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .redes h3{
     margin-top: 60px;
     color: black;
     border-bottom: black solid 1px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .redess{
     margin: 0;
     display: flex;
     text-align: center;
     justify-content: center;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .redes img{
     height: 30px;
     width: 30px;
     border-radius: 8px;
 }
-<<<<<<< HEAD
 .redes .social{
     margin-right: 10px;
 }
-=======
-
-.redes .social{
-    margin-right: 10px;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 footer{
     padding-top: 50px;
     padding-bottom: 50px;
@@ -264,48 +156,27 @@ footer{
     border-top: 2px solid #252525;
     border-bottom: 2px solid #252525;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 footer a{
     text-decoration: none;
     color: white;
     display: flow-root;
 }
-<<<<<<< HEAD
 footer h4{
     margin: 20px;
 }
-=======
-
-footer h4{
-    margin: 20px;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .cuerpo h2{
     display: flex;
     justify-content: center;
     font-size: 4em;
     color: black;
 }
-<<<<<<< HEAD
 .info{
     display: flex;
 }
-=======
-
-.info{
-    display: flex;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .txt{
     margin: 10px;
     flex-wrap: wrap;
 }
-<<<<<<< HEAD
 .txt a{
     text-decoration: none;
     color: black;
@@ -318,19 +189,12 @@ footer h4{
     animation: ease 2s;
     border-radius: 10px;
 }
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .txt h2{
     word-spacing: 15px;
     display: flex;
     justify-content: center;
     padding-bottom: 20px;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .arreglos{
     background-color: white;
     height: 70%;
@@ -341,23 +205,14 @@ footer h4{
     padding-left: 3%;
     padding-right: 3%;
 }
-<<<<<<< HEAD
 .arreglos img{
     border-radius: 8px;
     margin-right: 20px;
 }
-=======
-
-.arreglos img{
-    border-radius: 8px;
-}
-
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 .arreglos h3{
     border-bottom: 1px black solid;
 }
 
-<<<<<<< HEAD
 @media (max-width:700px) {
     .cuerpo .adan{
         height: 90%;
@@ -374,9 +229,4 @@ footer h4{
     footer{
         flex-wrap: wrap;
     }
-=======
-
-@media (max) {
-    
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
 }
