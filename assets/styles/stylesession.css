@@ -74,3 +74,45 @@ ul{
         width: 100px;
     }
 }
+.ca{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: #EFEFEF;
+}
+.ca img{
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background-color: #363636;
+    height: 40px;
+    padding-left: 10px;
+    align-items: center;
+}
+.menu a{
+    margin-right: 10px;
+    text-decoration: none;
+    color: #EFEFEF;
+    border-bottom: 0px solid #EFEFEF;
+    padding: 8px;
+}
+.menu .usuario{
+    color: #EFEFEF;
+}
+.menu a:hover{
+    font-style: none;
+    color: #EFEFEF;
+    border-bottom: 2px solid #EFEFEF;
+}
+.menu .session-info{
+    display: flex;
+    justify-content: flex-end;
+}
+.menu .links-to{
+    display: flex;
+}
