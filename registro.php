@@ -14,6 +14,10 @@ include("db/conexion.php");
     <title>Registrarse</title>  
 </head>
 <body>
+    <header class="ca">
+        <a href='index.php'><img src="assets/images/images.png"></a>
+        <h1>TESERIX</h1>
+    </header>
     <div class="formulario">
         <form action="registro.php" method="POST">
             <h1>Registrarse</h1>
