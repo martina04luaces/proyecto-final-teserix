@@ -39,6 +39,17 @@ a{
     height: 40px;
     font-size: 1.3em;
 }
+.ca{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: #EFEFEF;
+}
+.ca img{
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+}
 .menu{
     display: flex;
     list-style: none;
@@ -73,15 +84,4 @@ ul{
     input{
         width: 100px;
     }
-}
-.ca{
-    display: flex;
-    align-items: center;
-    background-color: black;
-    color: #EFEFEF;
-}
-.ca img{
-    width: 70px;
-    height: 70px;
-    margin: 15px;
 }
