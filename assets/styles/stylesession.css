@@ -18,6 +18,7 @@ a{
     color: white;
 }
 .formulario{
+    margin-top: 4%;
     display: flex;
     align-items: center;
     justify-content: center;
