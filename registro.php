@@ -7,6 +7,7 @@ include("db/conexion.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/images.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Roboto+Slab&display=swap" rel="stylesheet">
@@ -38,7 +39,7 @@ include("db/conexion.php");
             $emailInUse = mysqli_num_rows(mysqli_query($conexion, $emailQuery));
             
             if ($emailInUse >= 1) {
-                echo "Email ya en uso, utilice otro. <a href='../regis+tro.php'>Reiniciar</a>";
+                echo "Email ya en uso.";
             } else {
                 $usuario = $_POST['username'];
                 $contrasenia = $_POST['password'];

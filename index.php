@@ -30,13 +30,13 @@ include('db/conexion.php');
                     <li class="usuario"><?php
                     session_start();
                     if(isset($_SESSION['username'])) {
-                        echo 'Bienvenido, '. $_SESSION['username']. '. ';
-                        echo '<a href="closesession.php">Cerrar sesión</a>';
+                        echo '<a href="usuario.php"><img class="ima2" src="assets/images/user.png" style="margin-right: 5px; text-align: center;">'.$_SESSION['username'].'</a>';
                     }
                     else{
                         session_destroy();
-                        echo '<a href="login.php">Iniciar Sesion</a><a href="registro.php">Registrarse</a>';
+                        echo '<a href="login.php"><img class="ima2" src="assets/images/user.png"></a>';
                     } ?></li>
+                    <li><a href="carrito.php"><img class="ima2" src="assets/images/carrito.png"></a></li>
                 </div>
             </ul>
         </nav>
@@ -62,35 +62,23 @@ include('db/conexion.php');
                 <h3>Novedades</h3>
             </div>
             <div class="fot">
-                <div class="prod">
-                    <img src="assets/images/hdd.png" class="ima">
-                    <div>
-                        <h3>Disco Duro Seagate</h3>
-                        <p>Disco Rido de 1tb, con velocidades de escritura de hasta 500mb/s.</p>
-                        <b>$19.300</b> <br>
-                        <a href="!#"><img src="assets/images/carrito.png" class="ima2"></a>                
-                    </div>
-                </div>
-                
-                <div class="prod">
-                    <img src="assets/images/pro.png" class="ima">
-                    <div>
-                        <h3>AMD Ryzen 3 3200g</h3>
-                        <p>Microprocesador AMD Ryzen con graficos integrados Radeon Vega 8.</p>
-                        <b>$109.000</b> <br>
-                        <a href="!#"><img src="assets/images/carrito.png" class="ima2"></a>
-                    </div> 
-                </div>
-
-                <div class="prod">
-                    <img src="assets/images/ram.png" class="ima">
-                    <div>
-                        <h3>Memoria RAM 8gb</h3>
-                        <p>Memoria RAM marca Hyperx con una tasa de 2666mhz con tecnología DDR4.</p>
-                        <b>$26.000</b> <br>
-                        <a href="!#"><img src="assets/images/carrito.png" class="ima2"></a>
-                    </div>
-                </div>
+                <?php
+                    function mostrarProductos(){
+                        include("db/conexion.php");
+                        $sql="SELECT * FROM articles";
+                        $consulta= mysqli_query($conexion, $sql);
+                        while($registro= mysqli_fetch_assoc($consulta)){
+                            echo '<div class="prod">
+                                <img class="ima" src="assets/images/'.$registro['Img_art'].'">
+                                <p class="art">'.$registro['Name_art'].'</p>
+                                <p class="cost">$'.$registro['Price_art'].'</p>
+                                <p class="stock">Disponibilidad: '.$registro['Stock_art'].' productos</p>
+                                <a href="carrito.php"><img class="ima2" src="assets/images/carrito.png"></a>
+                            </div>';
+                        };
+                    }
+                    mostrarProductos();
+                ?>
             </div>
         </div>
         <div class="arreglos">
