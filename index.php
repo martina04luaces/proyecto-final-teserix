@@ -1,5 +1,6 @@
 <?php
 include('db/conexion.php');
+include('functions/functionCart.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,20 +64,6 @@ include('db/conexion.php');
             </div>
             <div class="fot">
                 <?php
-                    function mostrarProductos(){
-                        include("db/conexion.php");
-                        $sql="SELECT * FROM articles";
-                        $consulta= mysqli_query($conexion, $sql);
-                        while($registro= mysqli_fetch_assoc($consulta)){
-                            echo '<div class="prod">
-                                <img class="ima" src="assets/images/'.$registro['Img_art'].'">
-                                <p class="art">'.$registro['Name_art'].'</p>
-                                <p class="cost">$'.$registro['Price_art'].'</p>
-                                <p class="stock">Disponibilidad: '.$registro['Stock_art'].' productos</p>
-                                <a href="carrito.php"><img class="ima2" src="assets/images/carrito.png"></a>
-                            </div>';
-                        };
-                    }
                     mostrarProductos();
                 ?>
             </div>

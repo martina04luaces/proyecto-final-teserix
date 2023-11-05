@@ -35,7 +35,7 @@ include("db/conexion.php");
         <?php
         if (isset($_POST['registrar'])) {
             $email = $_POST['email'];
-            $emailQuery = "SELECT * FROM usuarios WHERE email = '$email'";
+            $emailQuery = "SELECT email FROM usuarios WHERE email = '$email'";
             $emailInUse = mysqli_num_rows(mysqli_query($conexion, $emailQuery));
             
             if ($emailInUse >= 1) {
@@ -43,15 +43,16 @@ include("db/conexion.php");
             } else {
                 $usuario = $_POST['username'];
                 $contrasenia = $_POST['password'];
+                $document= $_POST['document'];
                 $token = time();
                 
                 $password = password_hash($contrasenia, PASSWORD_DEFAULT);
                 
-                $sql = "INSERT INTO usuarios (username, password, email, token) VALUES ('$usuario', '$password', '$email', '$token')";
+                $sql = "INSERT INTO usuarios (username, password, document, email, token) VALUES ('$usuario', '$document', '$password', '$email', '$token')";
                 $insertar = mysqli_query($conexion, $sql);
                 
                 if ($insertar) {
-            
+                    echo 'Registro existoso <a href="login.php">Iniciar Sesion</a>';
                 } else {
                     echo 'Error al registrar usuario.';
                 }
@@ -67,7 +68,6 @@ include("db/conexion.php");
         }
 
         if (isset($_GET['token'])) {
-            session_start();
             $token = $_GET['token'];
             $sql = "SELECT * FROM usuarios WHERE token = '$token'";
             $consulta = mysqli_query($conexion, $sql);
@@ -81,7 +81,7 @@ include("db/conexion.php");
             } else {
                 echo 'El token no existe';
                 session_destroy();
-                header("location: ../registro.php");
+                header("location: registro.php");
             }
         }
         ?>

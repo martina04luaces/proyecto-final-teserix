@@ -9,7 +9,7 @@ include ('db/conexion.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vibes - Recuperar Contraseña</title>
+    <title>Recuperar Contraseña</title>
     <script
   src="https://code.jquery.com/jquery-3.7.0.min.js"
   integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
@@ -35,12 +35,12 @@ if (isset($_POST['Recuperar'])) {
  
     $email= $_POST['correo'];
  
-    $sql = "SELECT * FROM usuarios WHERE gmail = '$email'";
+    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
     $consulta = mysqli_query($conexion, $sql);
     if (mysqli_num_rows($consulta) > 0) {
         $token = time();
         $registro = mysqli_fetch_assoc($consulta);
-        $sqlUpdate = "UPDATE usuarios SET token = '$token' WHERE gmail = '$email'";
+        $sqlUpdate = "UPDATE usuarios SET token = '$token' WHERE email = '$email'";
         $actualizarToken = mysqli_query($conexion, $sqlUpdate);
 ?>
         <script>

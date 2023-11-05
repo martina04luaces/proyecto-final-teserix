@@ -24,6 +24,9 @@ include("db/conexion.php");
                 if(isset($_GET['senial'])){
                     echo '<div style="margin-bottom: 3%;" class="error-sesion"><svg style="margin-right: 3px;" aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>Ingrese para utilizar el carrito</div>';
                 }
+                if(isset($_GET['senial_2'])){
+                    echo '<div style="margin-bottom: 3%;" class="error-sesion"><svg style="margin-right: 3px;" aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>Su informacion de sesión ha cambiado, por favor inicie sesion nuevamente.</div>';
+                }
             ?>
             <h1>Iniciar Sesion</h1>
             <input class="input" type="text" id="username" name="username" placeholder="Usuario" required> <br>
