@@ -20,7 +20,6 @@
 
         <nav>
             <ul class="menu">
-<<<<<<< HEAD
                 <div class="links-to">
                     <li><a href='index.php'>Ventas</a></li>
                     <li><a href='turno.php'>Turno</a></li>
@@ -29,28 +28,14 @@
                     <li class="usuario"><?php
                     session_start();
                     if(isset($_SESSION['username'])) {
-                        echo '<p>Bienvenido, '. $_SESSION['username']. '.</p> ';
-                        echo '<a href="closesession.php">Cerrar sesión</a>';
+                        echo '<a href="usuario.php"><img class="ima2" src="assets/images/user.png" style="margin-right: 5px; text-align: center;">'.$_SESSION['username'].'</a>';
                     }
                     else{
                         session_destroy();
-                        echo '<a href="login.php">Iniciar Sesion</a> <a href="registro.php">Registrarse</a>';
-                    }?></li>
+                        echo '<a href="login.php"><img class="ima2" src="assets/images/user.png"></a>';
+                    } ?></li>
+                    <li><a href="carrito.php"><img class="ima2" src="assets/images/carrito.png"></a></li>
                 </div>
-=======
-                <li><a href='index.php'>Ventas</a></li>
-                <li><a href='turno.php'>Turnos</a></li>
-                <li class="usuario"><?php
-                session_start();
-                if(isset($_SESSION['username'])) {
-                    echo '<p>Bienvenido, '. $_SESSION['username']. '.</p> ';
-                    echo '<a href="closesession.php">Cerrar sesión</a>';
-                }
-                else{
-                    session_destroy();
-                    echo '<a href="registro.php">Registrarse</a> o <a href="login.php">Iniciar Sesion</a>';
-                }?></li>
->>>>>>> 878b001006a9fbe165a0fdcbd88e700321e3001f
             </ul>
         </nav>
         <form action="#" method="post" enctype="mulitpart/form-data" id="form">
