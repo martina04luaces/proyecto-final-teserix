@@ -31,7 +31,7 @@ include("db/conexion.php");
             <h1>Iniciar Sesion</h1>
             <input class="input" type="text" id="username" name="username" placeholder="Usuario" required> <br>
             <input class="input" type="password" id="password" name="password" placeholder="Contraseña" required> <br>
-            <input type="submit" value="Enviar" name="Enviar"> <br>
+            <input class="enviar" type="submit" value="Enviar" name="Enviar"> <br>
             <a href="registro.php">No tienes un usuario?</a>
         </form> 
     </div>

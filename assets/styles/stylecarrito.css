@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: #1F1F1F;
+}
+.ca{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    color: #EFEFEF;
+}
+.ca img{
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+}
+.menu{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    background-color: #363636;
+    height: 40px;
+    padding-left: 10px;
+    align-items: center;
+}
+.menu a{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #EFEFEF;
+    border-bottom: 0px solid #EFEFEF;
+    padding: 8px;
+}
+.menu .usuario{
+    color: #EFEFEF;
+}
+.menu a:hover{
+    font-style: none;
+    color: #EFEFEF;
+    border-bottom: 2px solid #EFEFEF;
+}
+.menu .session-info{
+    display: flex;
+    justify-content: flex-end;
+}
+.menu .links-to{
+    display: flex;
+}
+.carrito {
+    width: 100%;
+    max-width: 400px;
+    background: #1F1F1F;
+    color: white;
+    margin: 20px auto;
+    padding: 10px;
+}
+.carrito a{
+    color: lightblue;
+}
+
+a.comprar {
+    display: block;
+    width: 100%;
+    background:var(--principal);
+    color: var(--secundario);
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+a.comprar:hover {
+    color: var(--acento);
+}
+.ima2{
+    height: 25px;
+    width: 25px;
+}
+
+.link {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+p.total {
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin: 15px 0;
+    text-align: center;
+}
+
+p.SubTotal {
+    font-size: 1em;
+    font-weight: bolder;
+    margin: 10px 0;
+    text-align: right;
+}
+
+p.eliminar {
+    text-align: right;
+}

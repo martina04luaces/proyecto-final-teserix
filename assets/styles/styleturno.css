@@ -5,8 +5,8 @@
     font-family: 'Roboto', sans-serif;
 }
 body{
-    background-color: white;
-}
+    background-color: #1f1f1f;
+} 
 .ca{
     display: flex;
     align-items: center;
@@ -119,6 +119,13 @@ input{
 }
 #reference{
     opacity: 0;
+}
+.ima2{
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    margin-right: 13px;
 }
 @media (max-width:700px){
     .boton{
