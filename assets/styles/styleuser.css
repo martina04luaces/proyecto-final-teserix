@@ -64,3 +64,11 @@ body{
     text-align: center;
     color: #EFEFEF;
 }
+.formulario-e{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.enviar{
+    width: 130px;
+}

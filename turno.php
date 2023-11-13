@@ -44,11 +44,11 @@
                     <div>
                         <div class="data">
                             <p>Nombre completo</p>
-                            <input type="text" name="nombre">
+                            <input type="text" name="nombre" id="input">
                         </div>
                         <div class="data">
                             <p>Ingrese su consulta</p>
-                            <textarea name="texta" cols="103" rows="4"></textarea>
+                            <textarea id="input" name="texta" cols="103" rows="4"></textarea>
                         </div>
                         <button type="submit" class="boton">Enviar</button>
                     </div>

@@ -37,8 +37,6 @@ include('functions/functionCart.php');
                     if(isset($_SESSION['username'])){
                         echo '<div class="info-usuario">
                             '.mostrarUsuario().'
-                            <a href="carrito.php">Ir al carrito</a>
-                            <a href="closesession.php">Cerrar Sesion</a>
                         </div>'; 
                     }
                     else{
