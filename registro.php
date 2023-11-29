@@ -27,7 +27,7 @@ include("db/conexion.php");
             <input class="input" type="password" name="password" placeholder="Contraseña" required><br>
             <input class="input" type="password" name="confirm_password" placeholder="Confirmar contraseña" required><br>
             <input class="input" type="text" name="email" placeholder="Correo Electronico" required><br>  
-            <input type="submit" value="Registrar" name="registrar"><br>
+            <input class="enviar"type="submit" value="Registrar" name="registrar"><br>
             <a href="login.php">Ya tienes un usuario?</a>
         </form>
     </div>
@@ -46,9 +46,9 @@ include("db/conexion.php");
                 $document= $_POST['document'];
                 $token = time();
                 
-                $password = password_hash($contrasenia, PASSWORD_DEFAULT);
+                $password = password_hash($contrasenia, PASSWORD_BCRYPT);
                 
-                $sql = "INSERT INTO usuarios (username, password, document, email, token) VALUES ('$usuario', '$document', '$password', '$email', '$token')";
+                $sql = "INSERT INTO usuarios (username, password, document, email, token) VALUES ('$usuario', '$password', '$document', '$email', '$token')";
                 $insertar = mysqli_query($conexion, $sql);
                 
                 if ($insertar) {

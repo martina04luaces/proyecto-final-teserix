@@ -21,14 +21,15 @@
         <nav>
             <ul class="menu">
                 <div class="links-to">
-                    <li><a href='index.php'>Ventas</a></li>
+                    <li><a href='index.php'>Inicio</a></li>
                     <li><a href='turno.php'>Turno</a></li>
+                    <li><a href="catalogo.php">Catálogo</a></li>
                 </div>
                 <div class="session-info">
                     <li class="usuario"><?php
                     session_start();
                     if(isset($_SESSION['username'])) {
-                        echo '<a href="usuario.php"><img class="ima2" src="assets/images/user.png" style="margin-right: 5px; text-align: center;">'.$_SESSION['username'].'</a>';
+                        echo '<a href="usuario.php"><div class="user-user-info"><img class="ima2" src="assets/images/user.png" style="margin-right: 5px; text-align: center; "><p class="username-text">'.$_SESSION['username'].'</p></div></a>';
                     }
                     else{
                         session_destroy();
@@ -50,7 +51,9 @@
                             <p>Ingrese su consulta</p>
                             <textarea id="input" name="texta" cols="103" rows="4"></textarea>
                         </div>
-                        <button type="submit" class="boton">Enviar</button>
+                        <div class="button">
+                            <button type="submit" class="boton">Enviar</button>
+                        </div>
                     </div>
                     <a id="reference" href="mailto:teserix.contact@gmail.com">mail</a>
             </div>

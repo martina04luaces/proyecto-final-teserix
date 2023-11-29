@@ -23,8 +23,9 @@ include('functions/functionCart.php');
         <nav>
             <ul class="menu">
                 <div class="links-to">
-                    <li><a href='index.php'>Ventas</a></li>
+                    <li><a href='index.php'>Inicio</a></li>
                     <li><a href='turno.php'>Turno</a></li>
+                    <li><a href="catalogo.php">Catálogo</a></li>
                 </div>
                 <div class="session-info">
                     <li><a href="carrito.php"><img class="ima2" src="assets/images/carrito.png"></a></li>
@@ -43,6 +44,12 @@ include('functions/functionCart.php');
                         header("location: login.php?senial_2");
                     }
                 ?>
+            </div>
+            <div class="pedidos">
+            <h2 class="subtitulo"> Mis pedidos</h2>
+            <?php
+                mostrarPedidos($_SESSION['ID_user']);
+             ?>
             </div>
         </div>
         <a href="usuario.php"></a>

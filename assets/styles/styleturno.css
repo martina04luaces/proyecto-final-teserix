@@ -127,8 +127,19 @@ input{
     justify-content: center;
     margin-right: 13px;
 }
+.user-user-info {
+    display: flex;
+    align-items: center;
+}
+.button{
+    display: flex;
+    justify-content: center;
+}
 @media (max-width:700px){
     .boton{
         width: 100%;
+    }
+    .username-text{
+        display: none;
     }
 }

@@ -25,13 +25,14 @@ if(isset($_SESSION['username'])){
     <nav>
         <ul class="menu">
             <div class="links-to">
-                <li><a href='index.php'>Ventas</a></li>
+                <li><a href='index.php'>Inicio</a></li>
                 <li><a href='turno.php'>Turno</a></li>
+                <li><a href="catalogo.php">Catálogo</a></li>
             </div>
             <div class="session-info">
                 <li class="usuario"><?php
                 if(isset($_SESSION['username'])) {
-                    echo '<a href="usuario.php"><img class="ima2" src="assets/images/user.png" style="margin-right: 5px; text-align: center;">'.$_SESSION['username'].'</a>';
+                    echo '<a href="usuario.php"><img class="ima2" src="assets/images/user.png" style="margin-right: 5px; text-align: center;"><span>'.$_SESSION['username'].'</span></a>';
                 }
                 else{
                     session_destroy();
@@ -42,6 +43,12 @@ if(isset($_SESSION['username'])){
         </ul>
     </nav>
     <?php
+        if(isset($_GET['id_borrar'])){
+            borrarProdCarrito($_GET['id_borrar']);
+        }
+        if(isset($_GET['vaciarCarrito'])){
+            unset($_SESSION['carrito']);
+        }
         if(isset($_GET['ID_prod'])){
             agregarProdCarrito($_GET['ID_prod']);
         }
@@ -49,6 +56,9 @@ if(isset($_SESSION['username'])){
             mostrarCarritoVacio();
         }else{
             mostrarCarrito();
+        }
+        if(isset($_GET['finCompra'])){
+            finalizarCompra();
         }
     ?>
 </body>

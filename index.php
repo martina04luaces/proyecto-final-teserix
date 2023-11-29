@@ -24,14 +24,15 @@ include('functions/functionCart.php');
         <nav>
             <ul class="menu">
                 <div class="links-to">
-                    <li><a href='index.php'>Ventas</a></li>
+                    <li><a href='index.php'>Inicio</a></li>
                     <li><a href='turno.php'>Turno</a></li>
+                    <li><a href="catalogo.php">Catálogo</a></li>
                 </div>
                 <div class="session-info">
                     <li class="usuario"><?php
                     session_start();
                     if(isset($_SESSION['username'])) {
-                        echo '<a href="usuario.php"><img class="ima2" src="assets/images/user.png" style="margin-right: 5px; text-align: center;">'.$_SESSION['username'].'</a>';
+                        echo '<a href="usuario.php"><img class="ima2" src="assets/images/user.png" style="margin-right: 5px; text-align: center;"><span>'.$_SESSION['username'].'</span></a>';
                     }
                     else{
                         session_destroy();
@@ -48,7 +49,7 @@ include('functions/functionCart.php');
             <div class="adan" data-bs-ride="carousel">
                 <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="assets/images/net1.png" class="d-block w-100">
+                    <img src="assets/images/net4.png" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
                     <img src="assets/images/net2.png" class="d-block w-100">
@@ -58,13 +59,14 @@ include('functions/functionCart.php');
                 </div>
                 </div>
             </div>
-
-            <div class="subtitle">
+        </div>
+        <div class="novedades">
+        <div class="subtitle">
                 <h3>Novedades</h3>
             </div>
             <div class="fot">
                 <?php
-                    mostrarProductos();
+                    mostrarTresProductos();
                 ?>
             </div>
         </div>
@@ -85,7 +87,7 @@ include('functions/functionCart.php');
             <div class="redess">
                 <a href="https://es-la.facebook.com/"><img  class="social" src="assets/images/face.png"></a>
                 <a href="https://web.whatsapp.com/"><img class="social" src="assets/images/warap.png"></a>
-                <a href="https://www.instagram.com/?hl=es-la"><img class="social" src="assets/images/insta.jpg"></a>
+                <a href="https://www.instagram.com/?hl=es-la"><img class="social" src="assets/images/insta.png"></a>
                 <a href="https://twitter.com/"><img src="assets/images/tt.png"></a>
             </div>
         </div>

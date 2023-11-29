@@ -42,12 +42,12 @@ include("db/conexion.php");
                 $password = $_POST['password'];
                 $query = "SELECT * FROM usuarios WHERE username = '$username'";
                 $result = mysqli_query($conexion, $query);
-                
                 if (mysqli_num_rows($result) == 1) {
                     $row = mysqli_fetch_assoc($result);
                     if (password_verify($password, $row['password'])) {
                         session_start();
                         $_SESSION['username'] = $username;
+                        $_SESSION['ID_user'] = $row['id_usuario'];
                         header("location:index.php");
                     } 
                     else {
