@@ -27,6 +27,9 @@ include("db/conexion.php");
                 if(isset($_GET['senial_2'])){
                     echo '<div style="margin-bottom: 3%;" class="error-sesion"><svg style="margin-right: 3px;" aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>Su informacion de sesión ha cambiado, por favor inicie sesion nuevamente.</div>';
                 }
+                if(isset($_GET['senial3'])){
+                    echo '<div style="margin-bottom: 3%;" class="error-sesion"><svg style="margin-right: 3px;" aria-hidden="true" class="stUf5b qpSchb" fill="currentColor" focusable="false" width="16px" height="16px" viewBox="0 0 24 24" xmlns="https://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>Ingrese para realizar una consulta de arreglo</div>';
+                }
             ?>
             <h1>Iniciar Sesion</h1>
             <input class="input" type="text" id="username" name="username" placeholder="Usuario" required> <br>
@@ -41,7 +44,9 @@ include("db/conexion.php");
                 $username = $_POST['username'];
                 $password = $_POST['password'];
                 $query = "SELECT * FROM usuarios WHERE username = '$username'";
+                $query2 = "SELECT * FROM administrator WHERE username = '$username'";
                 $result = mysqli_query($conexion, $query);
+                $result2= mysqli_query($conexion, $query2);
                 if (mysqli_num_rows($result) == 1) {
                     $row = mysqli_fetch_assoc($result);
                     if (password_verify($password, $row['password'])) {
@@ -53,10 +58,19 @@ include("db/conexion.php");
                     else {
                         echo "Contraseña incorrecta.";
                     }
-                } 
-                else {
-                    echo "Usuario no encontrado.";
                 }
+                if(mysqli_num_rows($result2) == 1){
+                    $row2= mysqli_fetch_assoc($result2);
+                    if(password_verify($password, $row2['password'])){
+                        session_start();
+                        $_SESSION['username'] = $username;
+                        $_SESSION['id_admin'] = $row2['id_admin'];
+                        header("location:index.php");
+                    }
+                    else{
+                        echo 'contraseña incorrecta';
+                    }
+                } 
             }
         ?>
 </body>

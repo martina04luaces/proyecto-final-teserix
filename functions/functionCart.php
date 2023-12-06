@@ -18,6 +18,7 @@
         include("db/conexion.php");
         $sql="SELECT * FROM articles";
         $consulta= mysqli_query($conexion, $sql);
+        echo '<div class="cuerpo">';
         while($registro= mysqli_fetch_assoc($consulta)){
             $priceProd= number_format($registro['Price_art'], 2, '.', ',');
             echo '<div class="prod">
@@ -27,8 +28,9 @@
                 <p class="stock">Disponibilidad: '.$registro['Stock_art'].' productos</p>
                 <a href="carrito.php?ID_prod='.$registro['ID_art'].'"><img class="ima2" src="assets/images/carrito.png"></a>
             </div>';
-        };
-    };
+        }
+        echo '</div>';
+    } 
      
     function mostrarCarrito(){
         $carrito = $_SESSION['carrito'];
@@ -169,12 +171,6 @@
             $sql_update = "UPDATE articles SET Stock_art = '$nuevo_stock' WHERE ID_art = '$id_prod'";
             $update_stock = mysqli_query($conexion, $sql_update);
         }
-    
-        // veo/reviso que los datos del array $order sean los correctos
-        // echo '<pre>';
-        //print_r($order);
-        // echo '</pre>';
-      
         /*Asigno el valor a las variable que utilizare para grabar el registro */
         $fecha = date("Y/m/d");
         $productos = implode($order); //convierto el array $order en un string para guardarlo en la db
@@ -236,7 +232,7 @@
                         $precioTotal=$total = $total + ($precio*$cant);
                         echo '
                         <div class="detalle">
-                            <div class="img"> <img src="assets/images/'.$reg_art['Img_art'].'"></div>
+                            <div class="img"><img style="height:200px width:200px" src="assets/images/'.$reg_art['Img_art'].'"></div>
                             <div class="datos">
                                 <span>'.$reg_art['Name_art'].'</span><br> 
                                 <span> $'.number_format($precio,2,",",".").'</span><br> 
@@ -255,5 +251,147 @@
             echo 'No tiene Pedidos';
         }
     }
+    function agregarProductosAdmin(){
+        include('db/conexion.php');
+        include('redimensionarImg.php');
+        if(isset($_POST['Enviar'])){
+            $Name_art= $_POST['Name_art'];
+            $Price_art= $_POST['Price_art'];
+            $Stock_art= $_POST['Stock_art'];
+            if(is_uploaded_file($_FILES['Img_art']['tmp_name'])){
+                move_uploaded_file($_FILES['Img_art']['tmp_name'], $_FILES['Img_art']['Name_art']);
+                $foto= redimensionarImg($_FILES['foto']['name'], 200, 200); 
+                unlink($_FILES['Img_art']['Name_art']);                                                      
+            }
+            else{
+                echo 'error';
+            }
+            $sqlcons="INSERT INTO articles (ID_art, Name_art, Img_art, Price_art, Stock_art) VALUES ('$ID_art', '$Name_art', '$Img_art', '$Price_art', '$Stock_art')";
+            $insert= mysqli_query($conexion, $sqlcons);
+            if(mysqli_nums_rows($insert) == 1){
+                echo 'Datos Ingresados correctamente.';
+            }
+            else{
+                echo 'Hubo un error al ingresar los datos.';
+            }
+        }
+        if(isset($_POST['registrar'])){
+            $sql= "INSERT INTO usuarios (nombre, contrasenia, foto) VALUES ('$nombre', '$pass', '$foto')";
+            $insert= mysqli_query($conexion, $sql);
+        }
+    };
+    function mostrarAdminProductos(){
+        include("db/conexion.php");
+        include("redimensionarImg.php");
+        if(isset($_GET['id_eliminar'])){
+            $id_eliminar= $_GET['id_eliminar'];
+            $foto_eliminar="SELECT Img_art FROM articles WHERE ID_art = $id_eliminar";
+            $buscar_foto= mysqli_query($conexion, $foto_eliminar);
+            $registro_f= mysqli_fetch_assoc($buscar_foto);
+            $sql_eliminar= "DELETE FROM articles WHERE ID_art = '$id_eliminar'";
+            $eliminar= mysqli_query($conexion, $sql_eliminar)?print('<script>alert("Producto eliminado correctamente.")</script>'): print('<script>alert("Error al eliminar la imagen.")</script>');
+        }
+        if(isset($_GET['id_editar'])){
+            $id_editar=$_GET['id_editar'];
+            $sql_e="SELECT * FROM articles WHERE ID_art= '$id_editar'";
+            $consulta_e= mysqli_query($conexion, $sql_e);
+            $registro_e= mysqli_fetch_assoc($consulta_e);
+            echo'<div class="formulario"><form action="" method="post" enctype="multipart/form-data">
+                    <h2 style="margin-bottom: 10px;">Editar</h2>
+                    <label for="nombre">Nombre</label>
+                    <input class="input" type="text" name="nombre" value="'.$registro_e['Name_art'].'">
+                    <label for="Price">Precio</label>
+                    <input class="input" type="text" name="Price" value="'.$registro_e['Price_art'].'">
+                    <label for="Stock">Stock</label>
+                    <input class="input" type="text" name="Stock" value="'.$registro_e['Stock_art'].'">
+                    <input type="hidden" name="foto_e" value="'.$registro_e['Img_art'].'">
+                    <img style="height: 70px; width: 70px;" src="assets/images/'.$registro_e['Img_art'].'">
+                    <div class="file-input-container">
+                        <input id="Img_art" type="file" name="foto" accept="image/*" class="file-input" value="'.$registro_e['Img_art'].'"><br>     
+                        <label for="Img_art" class="file-input-button">Seleccionar Archivo</label>
+                    </div>
+                    <input class="enviar" type="submit" value="Actualizar" name="actualizar">
+                    <br>
+                </form>
+                </div>
+            ';
+            if(isset($_POST['actualizar'])){
+                $Nombre_e= $_POST['nombre'];
+                $Precio_e= $_POST['Price'];
+                $Stock_e=$_POST['Stock'];
+                $foto_e= $_POST['foto_e'];
+                if(is_uploaded_file($_FILES['foto']['tmp_name'])){
+                    move_uploaded_file($_FILES['foto']['tmp_name'], $_FILES['foto']['name']);
+                    $archivo= $_FILES['foto']['name'];
+                    $foto= redimensionarImg($archivo, 200, 200);
+                    unlink($archivo);
+                } else{
+                    $foto= $foto_e;
+                }
+                $sql_up= "UPDATE articles SET Name_art= '$Nombre_e', Price_art= '$Precio_e', Stock_art= '$Stock_e', Img_art= '$foto' WHERE ID_art= '$id_editar'";
+                $actualizar= mysqli_query($conexion, $sql_up);
+            }
+        }
+        $sql="SELECT * FROM articles";
+        $consulta= mysqli_query($conexion, $sql);
+        echo '<div class="cuerpo">';
+        while($registro= mysqli_fetch_assoc($consulta)){
+            $priceProd= number_format($registro['Price_art'], 2, '.', ',');
+            echo '<div class="prod">
+                <img class="ima" src="assets/images/'.$registro['Img_art'].'">
+                <p class="art">'.$registro['Name_art'].'</p>
+                <p class="cost">$'.$priceProd.'</p>
+                <p class="stock">Disponibilidad: '.$registro['Stock_art'].' productos</p>
+                <a href="catalogo.php?id_eliminar='.$registro['ID_art'].'"><img class="ima2" src="assets/images/borrar.png" onClick="return confirm(\'Seguro desea eliminar este producto?\')"></a>
+                <a href="catalogo.php?id_editar='.$registro['ID_art'].'"><img class="ima2" src="assets/images/edit.png"></a>
+            </div>';
+        };
+        echo '</div>';
+    };
+    function mostrarTurnos($ID_user){
+        include("db/conexion.php");
+        $sql = "SELECT * FROM arreglos WHERE ID_user = '$ID_user' ORDER BY Date_arreglo DESC";
+        $consulta = mysqli_query($conexion, $sql);
     
+        if(mysqli_num_rows($consulta)>0){
+            while($registro=mysqli_fetch_assoc($consulta)){
+                echo '<details>
+                <summary>Nro. de Arreglo: '.$registro['ID_arreglo']. ' | Fecha: '.$registro['Date_arreglo'].'</summary>';
+                
+                echo '<div class="detalle">
+                            <div class="datos" style="display:flex; align-items:center; flex-direction: column;">
+                                <span>Tipo de arreglo: '.$registro['Tipo_arreglo'].'</span>
+                                <span>Descripcion: '.$registro['Desc_arreglo'].'</span>
+                                <span>Estado: '.$registro['Estado_arreglo'].'</span>
+                            </div>
+                        </div>
+                        </details>'; 
+            }
+        }else{
+            echo 'No tiene Turnos';
+        }
+    }
+    function mostrarTurnosAdmin(){
+        include("db/conexion.php");
+        $sql = "SELECT * FROM arreglos ORDER BY Date_arreglo DESC";
+        $consulta = mysqli_query($conexion, $sql);
+    
+        if(mysqli_num_rows($consulta)>0){
+            while($registro=mysqli_fetch_assoc($consulta)){
+                echo '<details>
+                <summary>Nro. de Arreglo: '.$registro['ID_arreglo']. ' | Fecha: '.$registro['Date_arreglo'].'</summary>';
+                
+                echo '<div class="detalle">
+                            <div class="datos" style="display:flex; align-items:center; flex-direction: column;">
+                                <span>Tipo de arreglo: '.$registro['Tipo_arreglo'].'</span>
+                                <span>Descripcion: '.$registro['Desc_arreglo'].'</span>
+                                <span>Estado: '.$registro['Estado_arreglo'].'</span>
+                            </div>
+                        </div>
+                        </details>'; 
+            }
+        }else{
+            echo 'No tiene Turnos';
+        }
+    }
 ?>

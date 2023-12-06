@@ -1,3 +1,8 @@
+<?php
+    include("db/conexion.php");
+    include("functions/functionCart.php");
+    if(isset($SESS))
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +17,6 @@
     <title>Turnos</title>
 </head>
 <body>
-
         <header class="ca">
             <a href='index.php'><img src="assets/images/images.png"></a>
             <h1>TESERIX</h1>
@@ -39,26 +43,67 @@
                 </div>
             </ul>
         </nav>
-        <form action="#" method="post" enctype="mulitpart/form-data" id="form">
+        <?php
+        if(isset($_SESSION['id_admin'])){
+            echo '<div class="titulo" style="text-align:center; color:white;"><h1>MODO ADMINISTRADOR</h1></div>';
+        }
+        else{
+        ?>
+        <form action="" method="POST" id="form">
             <div class="cuerpo">
-                    <h3>Formulario de Turno</h3>    
+                    <h3 class="h3">Formulario de Turno</h3>    
                     <div>
                         <div class="data">
-                            <p>Nombre completo</p>
-                            <input type="text" name="nombre" id="input">
+                            <h3>Nombre completo</p>
+                            <input type="text" name="Nombre" id="input" required>
+                        </div>
+                        <div class="data" id="content-select">
+                            <h3>Tipo de Reparacion</p>
+                            <select name="Servicio">
+                                <option value="Instalación de Sistema Operativo">Instalación de Sistema Operativo</option>
+                                <option value="Revision General">Revision General</option>
+                                <option value="Instalación de componentes">Instalación de componentes</option>
+                                <option value="Arreglo de componentes">Arreglo de componentes</option>
+                            </select>
+                            <i></i>
                         </div>
                         <div class="data">
-                            <p>Ingrese su consulta</p>
-                            <textarea id="input" name="texta" cols="103" rows="4"></textarea>
+                            <h3>Email</h3>
+                            <input type="email" name="Email" id="input" required>
+                        </div>
+                        <div class="data">
+                            <h3>Descripcion</p>
+                            <textarea name="Descripción" cols="103" rows="4" required></textarea>
                         </div>
                         <div class="button">
-                            <button type="submit" class="boton">Enviar</button>
+                            <button type="submit" class="boton" value="Enviar" name="Enviar" onclick="myfunction()">Enviar</button>
                         </div>
                     </div>
-                    <a id="reference" href="mailto:teserix.contact@gmail.com">mail</a>
-            </div>
+            </div> 
         </form>
-
+        <?php
+            include("db/conexion.php");
+            if(isset($_SESSION['ID_user'])){
+                if(isset($_POST['Enviar'])){
+                    $TipoReparacion= $_POST['Servicio'];
+                    $Descripcion=$_POST['Descripción'];
+                    $fecha = date("Y/m/d");
+                    $ID_user= $_SESSION['ID_user'];
+                    $Estado_arreglo= 'En revisión.';
+                    $sqlTurn= "INSERT INTO arreglos (Tipo_arreglo, Desc_arreglo, Date_arreglo, Estado_arreglo, ID_user) VALUES ('$TipoReparacion','$Descripcion','$fecha', '$Estado_arreglo', '$ID_user')";
+                    $insertTurno= mysqli_query($conexion, $sqlTurn);
+                    if($insertTurno){
+                        echo'<script>alert("Pedido de arreglo realizado correctamente.")</script>';
+                    }
+                    else{
+                        echo '<script>alert("Malisimo")</script>';
+                    }
+                }
+            }
+            else{
+                header("location: login.php?senial3");
+            }
+        ?>
         <footer>
             <div class="pq">
                 <h4>Por qué comprar</h4>
@@ -73,6 +118,8 @@
                 <a href="!#">Garantías</a>
             </div>
         </footer>
-<script src="turno.js"></script>
+<?php
+}
+?>
 </body>
 </html>

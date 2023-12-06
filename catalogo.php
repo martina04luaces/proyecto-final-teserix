@@ -30,7 +30,7 @@ include("functions/functionCart.php");
                     <li class="usuario"><?php
                     session_start();
                     if(isset($_SESSION['username'])) {
-                        echo '<a href="usuario.php"><div class="user-user-info"><img class="ima2" src="assets/images/user.png" style="margin-right: 5px; text-align: center; "><p class="username-text">'.$_SESSION['username'].'</p></div></a>';
+                        echo '<a href="usuario.php"><div class="user-user-info"><img class="ima2" src="assets/images/user.png" style="margin-right: 5px; text-align: center; "><span class="username-text">'.$_SESSION['username'].'</span></div></a>';
                     }
                     else{
                         session_destroy();
@@ -40,10 +40,13 @@ include("functions/functionCart.php");
                 </div>
             </ul>
         </nav>
-        <div class="cuerpo">
-            <?php
+        <?php
+            if(isset($_SESSION['id_admin'])){
+                mostrarAdminProductos();
+            }
+            else{
                 mostrarProductos();
+            }
             ?>
-        </div>
 </body>
 </html>

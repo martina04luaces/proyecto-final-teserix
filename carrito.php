@@ -43,22 +43,27 @@ if(isset($_SESSION['username'])){
         </ul>
     </nav>
     <?php
-        if(isset($_GET['id_borrar'])){
-            borrarProdCarrito($_GET['id_borrar']);
+        if(isset($_SESSION['id_admin'])){
+            echo '<div class="titulo" style="text-align:center;"><h1>MODO ADMINISTRADOR</h1></div>';
         }
-        if(isset($_GET['vaciarCarrito'])){
-            unset($_SESSION['carrito']);
-        }
-        if(isset($_GET['ID_prod'])){
-            agregarProdCarrito($_GET['ID_prod']);
-        }
-        if(!isset($_SESSION['carrito'])){
-            mostrarCarritoVacio();
-        }else{
-            mostrarCarrito();
-        }
-        if(isset($_GET['finCompra'])){
-            finalizarCompra();
+        else{
+            if(isset($_GET['id_borrar'])){
+                borrarProdCarrito($_GET['id_borrar']);
+            }
+            if(isset($_GET['vaciarCarrito'])){
+                unset($_SESSION['carrito']);
+            }
+            if(isset($_GET['ID_prod'])){
+                agregarProdCarrito($_GET['ID_prod']);
+            }
+            if(!isset($_SESSION['carrito'])){
+                mostrarCarritoVacio();
+            }else{
+                mostrarCarrito();
+            }
+            if(isset($_GET['finCompra'])){
+                finalizarCompra();
+            }
         }
     ?>
 </body>
