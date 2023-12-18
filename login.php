@@ -31,8 +31,11 @@ include("db/conexion.php");
             <h1>Iniciar Sesion</h1>
             <input class="input" type="text" id="username" name="username" placeholder="Usuario" required> <br>
             <input class="input" type="password" id="password" name="password" placeholder="Contraseña" required> <br>
-            <input type="submit" value="Enviar" name="Enviar"> <br>
-            <a href="registro.php">No tienes un usuario?</a>
+            <input class="enviar" type="submit" value="Enviar" name="Enviar"> <br>
+            <a href="registro.php">No tienes un usuario?</a> <br>
+            <a href="recuperar.php">olvidaste tu contraseña?</a>
+            
+
         </form> 
     </div>
     <div class="errores">
@@ -42,12 +45,12 @@ include("db/conexion.php");
                 $password = $_POST['password'];
                 $query = "SELECT * FROM usuarios WHERE username = '$username'";
                 $result = mysqli_query($conexion, $query);
-                
                 if (mysqli_num_rows($result) == 1) {
                     $row = mysqli_fetch_assoc($result);
                     if (password_verify($password, $row['password'])) {
                         session_start();
                         $_SESSION['username'] = $username;
+                        $_SESSION['ID_user'] = $row['id_usuario'];
                         header("location:index.php");
                     } 
                     else {

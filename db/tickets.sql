@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2023 a las 04:21:13
+-- Tiempo de generación: 11-12-2023 a las 04:38:10
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -24,44 +24,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `tickets`
 --
 
-CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
-  `username` varchar(150) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `password` varchar(150) NOT NULL,
-  `document` int(11) NOT NULL,
-  `token` int(11) NOT NULL
+CREATE TABLE `tickets` (
+  `ticket_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `info_ticket` varchar(200) NOT NULL,
+  `respuesta_admin` varchar(200) NOT NULL,
+  `status` enum('abierto','cerrado') NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id_usuario`, `username`, `email`, `password`, `document`, `token`) VALUES
-(13, 'carlitos', 'elpapu@gmail.com', '$2y$10$LffhJOH9mPavy8K5xVtp7ezJlWMjU4xQLT0pWSv9nYDZDjLoQmgZ6', 23999874, 1701659990);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla `tickets`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
+ALTER TABLE `tickets`
+  ADD PRIMARY KEY (`ticket_id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT de la tabla `tickets`
 --
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `tickets`
+  MODIFY `ticket_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

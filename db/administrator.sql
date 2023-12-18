@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2023 a las 04:21:13
+-- Tiempo de generación: 11-12-2023 a las 23:30:36
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -24,44 +24,44 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `administrator`
 --
 
-CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
+CREATE TABLE `administrator` (
+  `id_admin` int(11) NOT NULL,
   `username` varchar(150) NOT NULL,
-  `email` varchar(150) NOT NULL,
-  `password` varchar(150) NOT NULL,
+  `password` varchar(200) NOT NULL,
   `document` int(11) NOT NULL,
-  `token` int(11) NOT NULL
+  `is_admin` enum('si','no') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Volcado de datos para la tabla `administrator`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `username`, `email`, `password`, `document`, `token`) VALUES
-(13, 'carlitos', 'elpapu@gmail.com', '$2y$10$LffhJOH9mPavy8K5xVtp7ezJlWMjU4xQLT0pWSv9nYDZDjLoQmgZ6', 23999874, 1701659990);
+INSERT INTO `administrator` (`id_admin`, `username`, `password`, `document`, `is_admin`) VALUES
+(2, 'Administrador', '$2y$10$koh2t4Zdvi3qCl4oCdpJb.TUUUdxx1xaJ3iCJcew22Gejm3z2SBsu', 23261233, NULL),
+(3, 'Admin2', '$2y$10$dQZ7cGhMkJ3Ohw/7l8t15ujYJ0rSDJipwvQbJREesHt/dJk.1Mywe', 36423099, NULL);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla `administrator`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
+ALTER TABLE `administrator`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT de la tabla `administrator`
 --
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `administrator`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
